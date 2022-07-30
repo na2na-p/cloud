@@ -34,10 +34,12 @@ chmod +x /usr/local/libexec/docker/cli-plugins/docker-compose
 PORTS=(22, 80, 443)
 iSSSH=true
 for PORT in "${PORTS[@]}"; do
-    if ["${iSSSH}"]; then
+    if "${iSSSH}"; then
         ISSH=false
+        echo "Setting up Firewall for port ${PORT}"
         ufw limit ${PORT}/tcp
     else
+        echo "Setting up Firewall for port ${PORT}"
         ufw allow ${PORT}/tcp
     fi
 done
