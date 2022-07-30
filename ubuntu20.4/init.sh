@@ -31,7 +31,8 @@ curl -SL https://github.com/docker/compose/releases/download/v2.8.0/docker-compo
 chmod +x /usr/local/libexec/docker/cli-plugins/docker-compose
 
 # Setting up Firewall
-PORTS=(22, 80, 443)
+# ufw enable -y
+PORTS=(22 80 443)
 iSSSH=true
 for PORT in "${PORTS[@]}"; do
     if "${iSSSH}"; then
