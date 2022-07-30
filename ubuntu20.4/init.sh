@@ -3,6 +3,9 @@
 apt-get update
 apt-get upgrade -y
 
+# Install packages
+apt-get install -y nginx
+
 # Setting up Docker & Docker-Compose
 apt-get install -y \
     ca-certificates \
@@ -26,3 +29,15 @@ mkdir -p /usr/local/libexec/docker/cli-plugins
 curl -SL https://github.com/docker/compose/releases/download/v2.8.0/docker-compose-linux-x86_64 -o /usr/local/libexec/docker/cli-plugins/docker-compose
 
 chmod +x /usr/local/libexec/docker/cli-plugins/docker-compose
+
+# Setting up Firewall
+PORTS=(22, 80, 443)
+iSSSH=true
+for PORT in "${PORTS[@]}"; do
+    if ["${iSSSH}"]; then
+        ISSH=false
+        ufw limit ${PORT}/tcp
+    else
+        ufw allow ${PORT}/tcp
+    fi
+done
