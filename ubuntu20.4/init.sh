@@ -4,7 +4,11 @@ apt-get update
 apt-get upgrade -y
 
 # Install packages
-apt-get install -y nginx
+apt-get install -y nginx expect
+
+# expect Setting
+timeout=10
+force="y"
 
 # Setting up Docker & Docker-Compose
 apt-get install -y \
@@ -31,7 +35,15 @@ curl -SL https://github.com/docker/compose/releases/download/v2.8.0/docker-compo
 chmod +x /usr/local/libexec/docker/cli-plugins/docker-compose
 
 # Setting up Firewall
-# ufw enable -y
+expect -c "
+    set timeout $timeout
+    spawn ufw enable
+    expect \"Command may disrupt existing ssh connections. Proceed with operation (y|n)?\"
+    send \"$force\n\"
+    expect \"Firewall is active and enabled on system startup\"
+    exit 0
+"
+
 PORTS=(22 80 443)
 iSSSH=true
 for PORT in "${PORTS[@]}"; do
