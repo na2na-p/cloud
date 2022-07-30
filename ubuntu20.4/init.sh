@@ -43,7 +43,7 @@ expect -c "
     expect \"Firewall is active and enabled on system startup\"
     exit 0
 "
-
+# 一番最初の要素をSSH用にしてください。
 PORTS=(22 80 443)
 iSSSH=true
 for PORT in "${PORTS[@]}"; do
