@@ -4,7 +4,7 @@ apt-get update -qq
 apt-get upgrade -qq -y
 
 # Install packages
-apt-get install -qq -y nginx expect
+apt-get install -qq -y ufw nginx expect
 
 # expect Setting
 timeout=10
