@@ -1,0 +1,12 @@
+winget install Microsoft.WindowsTerminal --accept-package-agreements --accept-source-agreements
+winget install Microsoft.PowerShell --accept-package-agreements --accept-source-agreements
+winget install Google.Chrome --accept-package-agreements --accept-source-agreements
+winget install SlackTechnologies.Slack --accept-package-agreements --accept-source-agreements
+winget install CrystalDewWorld.CrystalDiskInfo.KureiKeiEdition --accept-package-agreements --accept-source-agreements
+winget install Docker.DockerDesktop --accept-package-agreements --accept-source-agreements
+winget install VivaldiTechnologies.Vivaldi --accept-package-agreements --accept-source-agreements
+winget install Git.Git --accept-package-agreements --accept-source-agreements
+winget install GitHub.cli --accept-package-agreements --accept-source-agreements
+winget install Microsoft.VisualStudioCode --accept-package-agreements --accept-source-agreements
+winget install Discord.Discord --accept-package-agreements --accept-source-agreements
+winget install Microsoft.PowerToys --accept-package-agreements --accept-source-agreements
