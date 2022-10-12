@@ -11,7 +11,7 @@ winget install -e --id Google.Chrome
 winget install -e --id SlackTechnologies.Slack
 winget install -e --id Microsoft.PowerShell
 winget install -e --id Docker.DockerDesktop
+winget install -e --id CrystalDewWorld.CrystalDiskInfo.KureiKeiEdition
 winget install Microsoft.WindowsTerminal
-winget install CrystalDewWorld.CrystalDiskInfo.KureiKeiEdition
 winget install Microsoft.VisualStudioCode
 winget install DevToys
