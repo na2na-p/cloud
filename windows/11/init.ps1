@@ -1,3 +1,5 @@
+$script_dir = Split-Path -Parent $MyInvocation.MyCommand.Definition
+
 winget install -e --id Git.Git
 winget install -e --id GitHub.cli
 winget install -e --id Microsoft.PowerToys
@@ -19,3 +21,5 @@ winget install -e --id DeepL.DeepL
 winget install Microsoft.WindowsTerminal
 winget install Microsoft.VisualStudioCode
 winget install DevToys
+
+& $script_dir\nodejs_setup.ps1
