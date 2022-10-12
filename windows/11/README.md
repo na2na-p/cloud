@@ -1,6 +1,6 @@
 # 注意事項
 
-`Set-ExecutionPolicy RemoteSigned`を事前に叩いておくこと
+`Set-ExecutionPolicy RemoteSigned`を事前に叩いておくこと  
 家で使うなら home.ps1 だけ叩けばいいはず
 
 下記は事前にやっておきたい気持ちがある
