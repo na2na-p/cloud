@@ -1,4 +1,6 @@
 $script_dir = Split-Path -Parent $MyInvocation.MyCommand.Definition
+$custom_exec_dir = "C:\exec_bin"
+mkdir $custom_exec_dir
 
 & $script_dir\parts\drivers.ps1
 & $script_dir\parts\init.ps1
