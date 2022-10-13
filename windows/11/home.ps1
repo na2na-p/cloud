@@ -15,5 +15,6 @@ winget install -e --id PlayStation.DualSenseFWUpdater
 winget install -e --id LINE.LINE
 winget install -e --id BlenderFoundation.Blender
 winget install -e --id UnityTechnologies.UnityHub
+winget install -e --id VirtualDesktop.Streamer
 
 & $script_dir\parts\optional.ps1
