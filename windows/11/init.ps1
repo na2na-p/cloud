@@ -21,3 +21,6 @@ winget install Microsoft.VisualStudioCode
 winget install DevToys
 
 & $script_dir\parts\nodejs_setup.ps1
+
+# Deno setup
+Invoke-RestMethod https://deno.land/install.ps1 | Invoke-Expression

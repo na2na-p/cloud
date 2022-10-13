@@ -13,3 +13,5 @@ winget install -e --id PlayStation.DualSenseFWUpdater
 winget install -e --id LINE.LINE
 winget install -e --id BlenderFoundation.Blender
 winget install -e --id UnityTechnologies.UnityHub
+
+& $script_dir\parts\optional.ps1
