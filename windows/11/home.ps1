@@ -1,8 +1,6 @@
 $script_dir = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $custom_exec_dir = "C:\exec_bin"
-# custom_exec_dirが存在していなければ
 if (!(Test-Path $custom_exec_dir)) {
-		# custom_exec_dirを作成
 		New-Item -ItemType Directory -Path $custom_exec_dir
 }
 
