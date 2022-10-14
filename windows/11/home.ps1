@@ -17,5 +17,6 @@ winget install -e --id BlenderFoundation.Blender
 winget install -e --id UnityTechnologies.UnityHub
 winget install -e --id VirtualDesktop.Streamer
 winget install -e --id REALiX.HWiNFO
+winget install -e --id Parsec.Parsec
 
 & $script_dir\parts\optional.ps1
