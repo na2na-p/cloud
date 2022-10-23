@@ -16,7 +16,8 @@ winget install -e --id Microsoft.PowerShell
 winget install -e --id CrystalDewWorld.CrystalDiskInfo.KureiKeiEdition
 winget install -e --id DeepL.DeepL
 winget install Microsoft.WindowsTerminal
-winget install Microsoft.VisualStudioCode
+# Shell extension設定自動でできるようになるまではCOかも
+# winget install Microsoft.VisualStudioCode
 winget install DevToys
 
 & $script_dir\parts\nodejs_setup.ps1
