@@ -1,0 +1,25 @@
+services:
+  gogs:
+    image: gogs/gogs
+    volumes:
+      - "gogs_data:/data"
+    ports:
+      - "10022:22"
+      - "3000:3000"
+    links:
+      - db
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    volumes:
+      - "pg_data:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_DB: gogs
+    env_file:
+      - docker.env
+
+volumes:
+  gogs_data:
+  pg_data:
