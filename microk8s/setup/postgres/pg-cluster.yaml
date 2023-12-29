@@ -39,8 +39,8 @@ spec:
 
   backup:
     barmanObjectStore:
-      destinationPath: "s3://na2na-postgresql-cluster-backup/backup/" # ストレージ内の階層
-      endpointURL: "https://s3.ap-northeast-1-ntt.wasabisys.com/"
+      destinationPath: "s3://na2na-postgresql-cluster-backup/backup/"
+      endpointURL: "https://s3.ap-northeast-1-ntt.wasabisys.com"
       s3Credentials:
         accessKeyId:
           name: s3-secret
@@ -49,8 +49,12 @@ spec:
           name: s3-secret
           key: ACCESS_SECRET_KEY
       wal:
-        compression: gzip
+        compression: bzip2
+      data:
+        compression: bzip2
     retentionPolicy: "30d" # 30日で削除
+  monitoring:
+    enablePodMonitor: true
 
 ---
 apiVersion: postgresql.cnpg.io/v1
@@ -60,5 +64,6 @@ metadata:
 spec:
   schedule: "0 0 0 * * *"
   backupOwnerReference: self
+  immediate: true
   cluster:
     name: postgres-cluster
