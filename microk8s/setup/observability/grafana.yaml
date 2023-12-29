@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: grafana-applicationset
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - cluster: grafana
+            url: https://kubernetes.default.svc
+            repo: https://grafana.github.io/helm-charts
+            chart: grafana
+  template:
+    metadata:
+      name: "{{cluster}}"
+    spec:
+      project: default
+      source:
+        repoURL: "{{repo}}"
+        chart: "{{chart}}"
+        targetRevision: "7.0.19"
+        helm:
+          values: |
+            service:
+              type: NodePort
+              nodePort: 32454
+            networkPolicy:
+              enabled: true
+              ingress:
+                - from:
+                    - ipBlock:
+                        cidr: 192.168.3.0/24
+      destination:
+        server: "{{url}}"
+        namespace: grafana
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
