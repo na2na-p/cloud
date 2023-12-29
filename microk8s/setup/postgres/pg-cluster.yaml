@@ -3,7 +3,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: postgres-cluster
-  namespace: postgres
+  namespace: misskey
 spec:
   instances: 3 # HAクラスタのインスタンス数
   primaryUpdateStrategy: unsupervised
