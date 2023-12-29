@@ -7,10 +7,11 @@ metadata:
 spec:
   instances: 3 # HAクラスタのインスタンス数
   primaryUpdateStrategy: unsupervised
-  imageName: ghcr.io/cloudnative-pg/postgresql:15
-  envFrom:
-    - secretRef:
-        name: pg-user-secret
+  imageName: ghcr.io/cloudnative-pg/postgresql:15.5-11
+  superuserSecret:
+    name: superuser-secret
+  storage:
+    size: "30Gi"
   postgresql:
     parameters:
       max_connections: "128"
@@ -29,6 +30,13 @@ spec:
       max_parallel_workers_per_gather: "2"
       max_parallel_workers: "4"
       max_parallel_maintenance_workers: "2"
+  bootstrap:
+    initdb:
+      database: misskey
+      owner: misskey
+      secret:
+        name: pg-user-secret
+
   backup:
     barmanObjectStore:
       destinationPath: "s3://na2na-postgresql-cluster-backup/backup/" # ストレージ内の階層
